@@ -29,8 +29,21 @@ class Habito extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Habito - A habit trackre app',
-        theme: ThemeData.dark(),
+        title: 'Habito - A habit tracker app',
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          fontFamily: 'Nunito',
+          textTheme: const TextTheme(
+            displayLarge:
+                TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+            titleLarge: TextStyle(
+              fontSize: 36.0,
+            ),
+            bodyMedium: TextStyle(
+              fontSize: 14.0,
+            ),
+          ),
+        ),
         initialRoute: '/',
         routes: {
           "/": (context) => const SplashScreen(),
