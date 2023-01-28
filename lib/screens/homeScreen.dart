@@ -2,9 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:habito/constants/routes.dart';
-import 'package:habito/screens/settingsScreen.dart';
-import 'package:habito/screens/analyticsScreen.dart';
-import 'package:habito/screens/streaksScreen.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -43,8 +40,7 @@ class _HomeState extends State<Home> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Hello, Sampad",
-                    style: TextStyle(fontFamily: "Nunito", fontSize: 21)),
+                Text("Hello, Sampad", style: TextStyle(fontSize: 21)),
                 SizedBox(
                   height: 10,
                 ),
@@ -55,7 +51,6 @@ class _HomeState extends State<Home> {
             ),
             Container(
                 alignment: Alignment.centerLeft,
-                // margin: EdgeInsets.only(top: 5, bottom: 5, right: 15, left: 15),
                 child: Text(
                   "Good Morning",
                   style: TextStyle(

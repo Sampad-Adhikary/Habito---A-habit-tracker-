@@ -65,7 +65,6 @@ class _MyDashboard extends State<MyDashboard> {
                             Text(
                               'Home',
                               style: TextStyle(
-                                  fontFamily: 'Nunito',
                                   color: currentTab == 0
                                       ? Color.fromRGBO(141, 74, 248, 100)
                                       : Colors.grey),
@@ -92,7 +91,6 @@ class _MyDashboard extends State<MyDashboard> {
                             Text(
                               'Settings',
                               style: TextStyle(
-                                  fontFamily: 'Nunito',
                                   color: currentTab == 1
                                       ? Color.fromRGBO(141, 74, 248, 100)
                                       : Colors.grey),
@@ -124,7 +122,6 @@ class _MyDashboard extends State<MyDashboard> {
                             Text(
                               'Analytics',
                               style: TextStyle(
-                                  fontFamily: 'Nunito',
                                   color: currentTab == 2
                                       ? Color.fromRGBO(141, 74, 248, 100)
                                       : Colors.grey),
@@ -151,7 +148,6 @@ class _MyDashboard extends State<MyDashboard> {
                             Text(
                               'Streaks',
                               style: TextStyle(
-                                  fontFamily: 'Nunito',
                                   color: currentTab == 3
                                       ? Color.fromRGBO(141, 74, 248, 100)
                                       : Colors.grey),
