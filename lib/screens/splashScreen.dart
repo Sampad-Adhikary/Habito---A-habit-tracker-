@@ -44,6 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(milliseconds: 1500));
     setState(() => animate = true);
     await Future.delayed(const Duration(milliseconds: 2000));
-    Navigator.pushNamed(context, Routes.onboardingScreen1);
+    // Navigator.pushNamed(context, Routes.onboardingScreen1);
+    Navigator.pushNamed(context, Routes.appBar);
   }
 }

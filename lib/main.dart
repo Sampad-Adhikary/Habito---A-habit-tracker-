@@ -1,4 +1,7 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
+import 'package:habito/screens/dashboard.dart';
 
 //importing screens
 import 'constants/routes.dart';
@@ -37,12 +40,13 @@ class Habito extends StatelessWidget {
           // Routes.loginScreen: (context) => Login(),
           // Routes.otpScreen: (context) => Otp(),
           // Routes.signUpSCreen: (context) => Signup(),
-          // Routes.homeScreen: (context) => Home(),
-          // Routes.addHabitsScreen: (context) => Habits(),
-          // Routes.settingsScreen: (context) => Settings(),
+          Routes.homeScreen: (context) => const Home(),
+          Routes.addHabitsScreen: (context) => const Habits(),
+          Routes.settingsScreen: (context) => const Settings(),
           // Routes.profileScreen: (context) => Profile(),
-          // Routes.analyticsScreen: (context) => Analytics(),
-          // Routes.streaksScreen: (context) => Streaks(),
+          Routes.analyticsScreen: (context) => const Analytics(),
+          Routes.streaksScreen: (context) => const Streaks(),
+          Routes.appBar: (context) => const MyDashboard(),
         });
   }
 }
