@@ -29,7 +29,7 @@ class Habito extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Habito - A habit trackre app',
+        title: 'Habito - A habit tracker app',
         theme: ThemeData.dark(),
         initialRoute: '/',
         routes: {

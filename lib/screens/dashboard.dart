@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:habito/constants/routes.dart';
 import 'package:habito/screens/settingsScreen.dart';
@@ -23,7 +25,12 @@ class _MyDashboard extends State<MyDashboard> {
       child: Scaffold(
         body: PageStorage(bucket: bucket, child: currentScreen),
         floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.add),
+            backgroundColor: Color.fromRGBO(141, 74, 248, 100),
+            child: Icon(
+              Icons.add,
+              color: Colors.white,
+              size: 30,
+            ),
             onPressed: () {
               Navigator.pushNamed(context, Routes.addHabitsScreen);
             }),
@@ -32,7 +39,7 @@ class _MyDashboard extends State<MyDashboard> {
           shape: CircularNotchedRectangle(),
           notchMargin: 10,
           child: Container(
-            height: 45,
+            height: 55,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -51,21 +58,23 @@ class _MyDashboard extends State<MyDashboard> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.home,
+                                size: 35,
                                 color: currentTab == 0
-                                    ? Colors.blue
+                                    ? Color.fromRGBO(141, 74, 248, 100)
                                     : Colors.grey),
                             Text(
                               'Home',
                               style: TextStyle(
+                                  fontFamily: 'Nunito',
                                   color: currentTab == 0
-                                      ? Colors.blue
+                                      ? Color.fromRGBO(141, 74, 248, 100)
                                       : Colors.grey),
                             )
                           ],
                         ),
                       ),
                       MaterialButton(
-                        minWidth: 40,
+                        minWidth: 35,
                         onPressed: () {
                           setState(() {
                             currentScreen = Settings();
@@ -76,14 +85,16 @@ class _MyDashboard extends State<MyDashboard> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.settings,
+                                size: 35,
                                 color: currentTab == 1
-                                    ? Colors.blue
+                                    ? Color.fromRGBO(141, 74, 248, 100)
                                     : Colors.grey),
                             Text(
                               'Settings',
                               style: TextStyle(
+                                  fontFamily: 'Nunito',
                                   color: currentTab == 1
-                                      ? Colors.blue
+                                      ? Color.fromRGBO(141, 74, 248, 100)
                                       : Colors.grey),
                             )
                           ],
@@ -106,14 +117,16 @@ class _MyDashboard extends State<MyDashboard> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.analytics,
+                                size: 35,
                                 color: currentTab == 2
-                                    ? Colors.blue
+                                    ? Color.fromRGBO(141, 74, 248, 100)
                                     : Colors.grey),
                             Text(
                               'Analytics',
                               style: TextStyle(
+                                  fontFamily: 'Nunito',
                                   color: currentTab == 2
-                                      ? Colors.blue
+                                      ? Color.fromRGBO(141, 74, 248, 100)
                                       : Colors.grey),
                             )
                           ],
@@ -131,14 +144,16 @@ class _MyDashboard extends State<MyDashboard> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.whatshot,
+                                size: 35,
                                 color: currentTab == 3
-                                    ? Colors.blue
+                                    ? Color.fromRGBO(141, 74, 248, 100)
                                     : Colors.grey),
                             Text(
                               'Streaks',
                               style: TextStyle(
+                                  fontFamily: 'Nunito',
                                   color: currentTab == 3
-                                      ? Colors.blue
+                                      ? Color.fromRGBO(141, 74, 248, 100)
                                       : Colors.grey),
                             )
                           ],
