@@ -61,7 +61,7 @@ class _HomeState extends State<Home> {
             Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '$greet',
+                  '$greet &',
                   style: TextStyle(
                       fontFamily: 'Nunito',
                       fontWeight: FontWeight.bold,
