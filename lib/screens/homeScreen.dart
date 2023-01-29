@@ -11,24 +11,30 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  TimeOfDay? time = TimeOfDay.now();
-
-  String greeting(time) {
-    String greet = '';
-    if (time > 3 && time < 12) {
-      greet = "Good Morning";
-    } else if (time >= 12 && time < 5) {
-      greet = "Good Afternoon";
-    } else if (time >= 5 && time < 10) {
-      greet = "Good Evening";
-    } else {
-      greet = "Good Night";
-    }
-    return greet;
-  }
+  // TimeOfDay? time = TimeOfDay.now();
 
   @override
   Widget build(BuildContext context) {
+    String greeting(givenHour) {
+      String local_greet = "";
+      if (givenHour <= 12) {
+        local_greet = "Good Morning";
+      } else if ((givenHour > 12) && (givenHour <= 16)) {
+        local_greet = "Good Afternoon";
+      } else if ((givenHour > 16) && (givenHour <= 20)) {
+        local_greet = "Good Evening";
+      } else {
+        local_greet = "Good Night";
+      }
+      return local_greet;
+    }
+
+    var time = DateTime.now();
+    var hour = time.hour.toInt();
+    // var hour = 11;
+    print(hour.runtimeType);
+    String greet = greeting(hour);
+
     return SafeArea(
         child: Scaffold(
       body: Container(
@@ -41,18 +47,21 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Hello, Sampad", style: TextStyle(fontSize: 21)),
-                SizedBox(
-                  height: 10,
-                ),
+                // SizedBox(
+                //   height: 10,
+                // ),
                 Container(
-                  child: Icon(Icons.notifications),
+                  child: Icon(
+                    Icons.notifications,
+                    size: 30,
+                  ),
                 )
               ],
             ),
             Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Good Morning",
+                  '$greet',
                   style: TextStyle(
                       fontFamily: 'Nunito',
                       fontWeight: FontWeight.bold,
