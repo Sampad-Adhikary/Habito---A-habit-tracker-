@@ -1,7 +1,9 @@
 {
     "cSpell.words": [
+        "Cupertino",
         "habito",
         "RGBO",
         "signup"
-    ]
+    ],
+    "cmake.sourceDirectory": "${workspaceFolder}/linux"
 }
