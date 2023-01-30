@@ -47,6 +47,7 @@ class Habito extends StatelessWidget {
         initialRoute: '/',
         routes: {
           "/": (context) => const SplashScreen(),
+          // "/": (context) => AppBar(),
           Routes.onboardingScreen1: (context) => Onboarding(),
           // Routes.onboardingScreen2: (context) => Onboarding1(),
           // Routes.onboardingScreen3: (context) => Onboarding1(),

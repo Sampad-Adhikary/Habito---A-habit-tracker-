@@ -61,13 +61,13 @@ class _MyDashboard extends State<MyDashboard> {
                                 size: 35,
                                 color: currentTab == 0
                                     ? Color.fromRGBO(141, 74, 248, 100)
-                                    : Colors.grey),
+                                    : Colors.grey[300]),
                             Text(
                               'Home',
                               style: TextStyle(
                                   color: currentTab == 0
                                       ? Color.fromRGBO(141, 74, 248, 100)
-                                      : Colors.grey),
+                                      : Colors.grey[300]),
                             )
                           ],
                         ),
@@ -87,13 +87,13 @@ class _MyDashboard extends State<MyDashboard> {
                                 size: 35,
                                 color: currentTab == 1
                                     ? Color.fromRGBO(141, 74, 248, 100)
-                                    : Colors.grey),
+                                    : Colors.grey[300]),
                             Text(
                               'Settings',
                               style: TextStyle(
                                   color: currentTab == 1
                                       ? Color.fromRGBO(141, 74, 248, 100)
-                                      : Colors.grey),
+                                      : Colors.grey[300]),
                             )
                           ],
                         ),
@@ -118,13 +118,13 @@ class _MyDashboard extends State<MyDashboard> {
                                 size: 35,
                                 color: currentTab == 2
                                     ? Color.fromRGBO(141, 74, 248, 100)
-                                    : Colors.grey),
+                                    : Colors.grey[300]),
                             Text(
                               'Analytics',
                               style: TextStyle(
                                   color: currentTab == 2
                                       ? Color.fromRGBO(141, 74, 248, 100)
-                                      : Colors.grey),
+                                      : Colors.grey[300]),
                             )
                           ],
                         ),
@@ -144,13 +144,13 @@ class _MyDashboard extends State<MyDashboard> {
                                 size: 35,
                                 color: currentTab == 3
                                     ? Color.fromRGBO(141, 74, 248, 100)
-                                    : Colors.grey),
+                                    : Colors.grey[300]),
                             Text(
                               'Streaks',
                               style: TextStyle(
                                   color: currentTab == 3
                                       ? Color.fromRGBO(141, 74, 248, 100)
-                                      : Colors.grey),
+                                      : Colors.grey[300]),
                             )
                           ],
                         ),
