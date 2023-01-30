@@ -39,6 +39,7 @@ dependencies:
   shared_preferences: ^2.0.17
   intl_utils: ^2.8.1
   percent_indicator: ^4.2.2
+  firebase_core: ^2.4.1
 
 dev_dependencies:
   flutter_test:
