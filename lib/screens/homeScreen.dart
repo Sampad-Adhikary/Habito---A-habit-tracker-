@@ -17,6 +17,7 @@ class _HomeState extends State<Home> {
   late ScrollController scrollController;
   List<DateTime> currentMonthList = List.empty();
   DateTime currentDateTime = DateTime.now();
+  bool? isChecked = false;
 
   @override
   void initState() {
@@ -138,22 +139,123 @@ class _HomeState extends State<Home> {
 
   Widget progressBar() {
     return Container(
-      color: Color.fromRGBO(0, 0, 0, 50),
-      margin: EdgeInsets.fromLTRB(5, 7, 5, 7),
+      height: 200,
+      // width: 350,
+
+      margin: EdgeInsets.fromLTRB(5, 20, 5, 7),
+      padding: EdgeInsets.fromLTRB(15, 7, 15, 7),
+      decoration: BoxDecoration(
+          color: Color.fromRGBO(0, 0, 0, 100),
+          borderRadius: BorderRadius.circular(10)),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CircularPercentIndicator(
-            radius: 300,
-            lineWidth: 10.0,
-            percent: 0.4,
-            progressColor: Color.fromRGBO(141, 74, 248, 50),
-            backgroundColor: Color.fromRGBO(141, 74, 248, 70),
+          Container(
+            margin: EdgeInsets.only(right: 30),
+            child: CircularPercentIndicator(
+              radius: 80,
+              // animateFromLastPercent: ,
+              lineWidth: 25.0,
+              percent: 0.4,
+              progressColor: Color.fromRGBO(141, 74, 248, 50),
+              backgroundColor: Color.fromRGBO(141, 74, 248, 95),
+              circularStrokeCap: CircularStrokeCap.round,
+              center: const Text(
+                "40 %",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              Text(
+                "1 out of 3 Habits",
+                style: TextStyle(fontSize: 20),
+              ),
+              Text("Completed today", style: TextStyle(fontSize: 20)),
+            ],
           )
         ],
       ),
     );
   }
 
+  Widget Tasks() {
+    return Container(
+      height: 150,
+      margin: EdgeInsets.fromLTRB(5, 0, 5, 20),
+      decoration: BoxDecoration(
+          color: Colors.black26, borderRadius: BorderRadius.circular(10)),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            margin: EdgeInsets.only(left: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Task 1",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    )),
+                Container(
+                  margin: EdgeInsets.only(right: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Checkbox(
+                        value: isChecked,
+                        activeColor: Color.fromRGBO(141, 74, 248, 50),
+                        tristate: true,
+                        onChanged: (newBool) {
+                          setState(() {
+                            isChecked = newBool;
+                          });
+                        },
+                      ),
+                      Icon(
+                        Icons.delete,
+                        color: Colors.red,
+                      ),
+                      Icon(
+                        Icons.edit,
+                        color: Colors.grey[100],
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          Divider(
+            thickness: 2,
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text("Current Streak: 00")),
+                Container(
+                    margin: EdgeInsets.only(right: 30),
+                    alignment: Alignment.centerRight,
+                    child: Text("Best Streak: 00")),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  //Build WIDGET
   @override
   Widget build(BuildContext context) {
     String greeting(givenHour) {
@@ -178,63 +280,80 @@ class _HomeState extends State<Home> {
 
     return SafeArea(
         child: Scaffold(
-      body: Container(
-        margin: EdgeInsets.only(top: 5, bottom: 5, right: 7, left: 7),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              padding: EdgeInsets.fromLTRB(10, 15, 10, 5),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    // ignore: prefer_const_literals_to_create_immutables
-                    colors: [
-                      Color.fromRGBO(141, 74, 248, 70),
-                      Color.fromRGBO(141, 74, 248, 50),
-                      Color.fromRGBO(141, 74, 248, 30)
-                    ],
-                    begin: const FractionalOffset(0.0, 0.0),
-                    end: const FractionalOffset(0.0, 1.0),
-                    stops: const [0.0, 0.5, 1.0],
-                    tileMode: TileMode.clamp),
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    spreadRadius: 2,
-                    blurRadius: 4,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Container(
+          margin: EdgeInsets.only(top: 5, bottom: 5, right: 7, left: 7),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.fromLTRB(10, 15, 10, 5),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      colors: [
+                        Color.fromRGBO(141, 74, 248, 70),
+                        Color.fromRGBO(141, 74, 248, 50),
+                        Color.fromRGBO(141, 74, 248, 30)
+                      ],
+                      begin: const FractionalOffset(0.0, 0.0),
+                      end: const FractionalOffset(0.0, 1.0),
+                      stops: const [0.0, 0.5, 1.0],
+                      tileMode: TileMode.clamp),
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      spreadRadius: 2,
+                      blurRadius: 4,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        Text("Hello, Sampad", style: TextStyle(fontSize: 21)),
+                        Icon(
+                          Icons.notifications,
+                          size: 30,
+                        )
+                      ],
+                    ),
+                    Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          '$greet',
+                          style: TextStyle(
+                              fontFamily: 'Nunito',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 28),
+                        )),
+                  ],
+                ),
               ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    // ignore: prefer_const_literals_to_create_immutables
-                    children: [
-                      Text("Hello, Sampad", style: TextStyle(fontSize: 21)),
-                      Icon(
-                        Icons.notifications,
-                        size: 30,
-                      )
-                    ],
-                  ),
-                  Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        '$greet',
-                        style: TextStyle(
-                            fontFamily: 'Nunito',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 28),
-                      )),
-                ],
+              calendarList(),
+              progressBar(),
+              Container(
+                margin: EdgeInsets.fromLTRB(5, 7, 5, 7),
+                padding: EdgeInsets.fromLTRB(5, 7, 5, 7),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Today's Checklist!",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            calendarList()
-          ],
+              Tasks(),
+              Tasks(),
+              Tasks(),
+              Tasks(),
+            ],
+          ),
         ),
       ),
     ));
