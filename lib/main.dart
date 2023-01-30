@@ -1,4 +1,7 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
+import 'package:habito/screens/dashboard.dart';
 
 //importing screens
 import 'constants/routes.dart';
@@ -45,5 +48,3 @@ class Habito extends StatelessWidget {
         //   Routes.analyticsScreen: (context) => Analytics(),
         //   Routes.streaksScreen: (context) => Streaks(),
        ); }
-  }
-

@@ -11,4 +11,5 @@ class Routes {
   static const String profileScreen = "/edit-profile";
   static const String analyticsScreen = "/analytics";
   static const String streaksScreen = "/streaks";
+  static const String appBar = "/app-bar";
 }

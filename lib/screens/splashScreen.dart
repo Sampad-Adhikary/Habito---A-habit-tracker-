@@ -5,15 +5,12 @@ import 'package:habito/screens/onboarding/onboardingScreen1.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
-
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   bool animate=false;
-
   @override
   void initState() {
     // TODO: implement initState
