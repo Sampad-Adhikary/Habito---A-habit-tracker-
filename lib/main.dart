@@ -7,7 +7,7 @@ import 'package:habito/screens/dashboard.dart';
 import 'constants/routes.dart';
 import 'screens/splashScreen.dart';
 import 'screens/onboarding/onboardingScreen1.dart';
-import 'screens/onboarding/onboardingScreen2.dart';
+import 'screens/onboarding/contents_model.dart';
 import 'screens/onboarding/onboardingScreen3.dart';
 import 'screens/login-signup/loginScreen.dart';
 import 'screens/login-signup/signUpScreen.dart';
@@ -29,37 +29,22 @@ class Habito extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Habito - A habit tracker app',
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          fontFamily: 'Nunito',
-          textTheme: const TextTheme(
-            displayLarge:
-                TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-            titleLarge: TextStyle(
-              fontSize: 36.0,
-            ),
-            bodyMedium: TextStyle(
-              fontSize: 14.0,
-            ),
-          ),
-        ),
+      debugShowCheckedModeBanner: false,
+        title: 'Habito - A habit trackre app',
+        theme: ThemeData.dark(),
         initialRoute: '/',
         routes: {
-          "/": (context) => const SplashScreen(),
-          Routes.onboardingScreen1: (context) => const Onboarding1(),
-          // Routes.onboardingScreen2: (context) => Onboarding1(),
-          // Routes.onboardingScreen3: (context) => Onboarding1(),
-          // Routes.loginScreen: (context) => Login(),
-          // Routes.otpScreen: (context) => Otp(),
-          // Routes.signUpSCreen: (context) => Signup(),
-          Routes.homeScreen: (context) => const Home(),
-          Routes.addHabitsScreen: (context) => const Habits(),
-          Routes.settingsScreen: (context) => const Settings(),
-          // Routes.profileScreen: (context) => Profile(),
-          Routes.analyticsScreen: (context) => const Analytics(),
-          Routes.streaksScreen: (context) => const Streaks(),
-          Routes.appBar: (context) => const MyDashboard(),
-        });
-  }
-}
+          "/": (context) => Onbording(),}
+        //   Routes.onboardingScreen1: (context) => Onboarding1(),
+        //   Routes.onboardingScreen2: (context) => Onboarding1(),
+        //   Routes.onboardingScreen3: (context) => Onboarding1(),
+        //   Routes.loginScreen: (context) => Login(),
+        //   Routes.otpScreen: (context) => Otp(),
+        //   Routes.signUpSCreen: (context) => Signup(),
+        //   Routes.homeScreen: (context) => Home(),
+        //   Routes.addHabitsScreen: (context) => Habits(),
+        //   Routes.settingsScreen: (context) => Settings(),
+        //   Routes.profileScreen: (context) => Profile(),
+        //   Routes.analyticsScreen: (context) => Analytics(),
+        //   Routes.streaksScreen: (context) => Streaks(),
+       ); }
