@@ -1,6 +1,6 @@
 library utils;
 
-import 'package:intl_utils/intl_utils.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
 class DateUtils {
