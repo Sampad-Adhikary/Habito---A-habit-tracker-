@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'constants/routes.dart';
 import 'screens/splashScreen.dart';
 import 'screens/onboarding/onboardingScreen1.dart';
-import 'screens/onboarding/onboardingScreen2.dart';
+import 'screens/onboarding/contents_model.dart';
 import 'screens/onboarding/onboardingScreen3.dart';
 import 'screens/login-signup/loginScreen.dart';
 import 'screens/login-signup/signUpScreen.dart';
@@ -26,23 +26,24 @@ class Habito extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         title: 'Habito - A habit trackre app',
         theme: ThemeData.dark(),
         initialRoute: '/',
         routes: {
-          "/": (context) => SplashScreen(),
-          Routes.onboardingScreen1: (context) => Onboarding1(),
-          Routes.onboardingScreen2: (context) => Onboarding1(),
-          Routes.onboardingScreen3: (context) => Onboarding1(),
-          Routes.loginScreen: (context) => Login(),
-          Routes.otpScreen: (context) => Otp(),
-          Routes.signUpSCreen: (context) => Signup(),
-          Routes.homeScreen: (context) => Home(),
-          Routes.addHabitsScreen: (context) => Habits(),
-          Routes.settingsScreen: (context) => Settings(),
-          Routes.profileScreen: (context) => Profile(),
-          Routes.analyticsScreen: (context) => Analytics(),
-          Routes.streaksScreen: (context) => Streaks(),
-        });
+          "/": (context) => Onbording(),}
+        //   Routes.onboardingScreen1: (context) => Onboarding1(),
+        //   Routes.onboardingScreen2: (context) => Onboarding1(),
+        //   Routes.onboardingScreen3: (context) => Onboarding1(),
+        //   Routes.loginScreen: (context) => Login(),
+        //   Routes.otpScreen: (context) => Otp(),
+        //   Routes.signUpSCreen: (context) => Signup(),
+        //   Routes.homeScreen: (context) => Home(),
+        //   Routes.addHabitsScreen: (context) => Habits(),
+        //   Routes.settingsScreen: (context) => Settings(),
+        //   Routes.profileScreen: (context) => Profile(),
+        //   Routes.analyticsScreen: (context) => Analytics(),
+        //   Routes.streaksScreen: (context) => Streaks(),
+       ); }
   }
-}
+
