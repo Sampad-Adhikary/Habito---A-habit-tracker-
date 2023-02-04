@@ -1,7 +1,8 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_import, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:habito/screens/dashboard.dart';
+import 'package:habito/screens/login-signup/resetPassword.dart';
 
 //importing screens
 import 'constants/routes.dart';
@@ -51,9 +52,10 @@ class Habito extends StatelessWidget {
           Routes.onboardingScreen1: (context) => Onboarding(),
           // Routes.onboardingScreen2: (context) => Onboarding1(),
           // Routes.onboardingScreen3: (context) => Onboarding1(),
-          // Routes.loginScreen: (context) => Login(),
-          // Routes.otpScreen: (context) => Otp(),
-          // Routes.signUpSCreen: (context) => Signup(),
+          Routes.loginScreen: (context) => Login(),
+          Routes.otpScreen: (context) => Otp(),
+          Routes.signUpSCreen: (context) => Signup(),
+          Routes.resetPassword: (context) => PasswordReset(),
           Routes.homeScreen: (context) => const Home(),
           Routes.addHabitsScreen: (context) => const Habits(),
           Routes.settingsScreen: (context) => const Settings(),
