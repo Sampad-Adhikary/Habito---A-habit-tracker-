@@ -10,7 +10,7 @@ List<UnbordingContent> contents = [
   UnbordingContent(
       title: 'Understanding Statistics',
       image: 'assets/images/onboarding1.png',
-      discription: 'It\'s hard to tell the truth without staistics'),
+      discription: 'It\'s hard to tell the truth without statistics'),
   UnbordingContent(
       title: 'Reminders and Notifications',
       image: 'assets/images/onboarding2.png',

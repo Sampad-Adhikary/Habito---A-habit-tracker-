@@ -105,12 +105,11 @@ class _OnboardingState extends State<Onboarding> {
               child: TextButton(
                 child: Text(
                   currentIndex == contents.length - 1 ? "Get Started" : "Next",
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
                   if (currentIndex == contents.length - 1) {
-                    Navigator.pushReplacementNamed(
-                        context, Routes.addHabitsScreen);
+                    Navigator.pushReplacementNamed(context, Routes.loginScreen);
                   }
                   _controller.nextPage(
                     duration: Duration(milliseconds: 100),

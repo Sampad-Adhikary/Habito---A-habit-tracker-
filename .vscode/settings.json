@@ -2,12 +2,14 @@
     "cSpell.words": [
         "ARGB",
         "Cupertino",
+        "discription",
         "habito",
         "LTRB",
         "Nunito",
         "RGBO",
         "Sampad",
-        "signup"
+        "signup",
+        "Unbording"
     ],
     "cmake.sourceDirectory": "${workspaceFolder}/linux"
 }

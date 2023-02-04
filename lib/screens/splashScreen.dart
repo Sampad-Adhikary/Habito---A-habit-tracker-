@@ -31,7 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Container(
                 height: 400,
                 width: 400,
-                child: const Image(image: AssetImage('assets/habito-logo.png')),
+                child: const Image(
+                    image: AssetImage('assets/images/habito-logo.png')),
               ),
             ),
           ),
@@ -44,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(milliseconds: 1500));
     setState(() => animate = true);
     await Future.delayed(const Duration(milliseconds: 2000));
-    // Navigator.pushNamed(context, Routes.onboardingScreen1);
-    Navigator.pushNamed(context, Routes.appBar);
+    Navigator.pushNamed(context, Routes.onboardingScreen1);
+    // Navigator.pushNamed(context, Routes.appBar);
   }
 }
