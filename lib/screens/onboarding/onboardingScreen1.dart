@@ -66,7 +66,6 @@ class _OnboardingState extends State<Onboarding> {
                         ),
                         Text(
                           contents[i].title,
-                          // ignore: prefer_const_constructors
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 35,

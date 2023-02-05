@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unused_import
+// ignore_for_file: prefer_const_constructors, unused_import, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:habito/constants/routes.dart';
@@ -14,10 +14,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  late ScrollController scrollController;
-  List<DateTime> currentMonthList = List.empty();
   DateTime currentDateTime = DateTime.now();
+  List<DateTime> currentMonthList = List.empty();
   bool? isChecked = false;
+  late ScrollController scrollController;
 
   @override
   void initState() {

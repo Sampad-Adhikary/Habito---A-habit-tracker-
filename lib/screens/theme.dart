@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:habito/constants/routes.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({super.key});
+class AppTheme extends StatefulWidget {
+  const AppTheme({super.key});
 
   @override
-  State<Profile> createState() => _ProfileState();
+  State<AppTheme> createState() => _ThemeState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ThemeState extends State<AppTheme> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
