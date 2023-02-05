@@ -5,6 +5,8 @@
 import FlutterMacOS
 import Foundation
 
+
+import cloud_firestore
 import firebase_core
 import shared_preferences_foundation
 

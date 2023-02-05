@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import, prefer_const_constructors
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:habito/screens/dashboard.dart';
 import 'package:habito/screens/login-signup/resetPassword.dart';
@@ -20,7 +21,9 @@ import 'screens/profileScreen.dart';
 import 'screens/settingsScreen.dart';
 import 'screens/streaksScreen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const Habito());
 }
 
@@ -48,19 +51,20 @@ class Habito extends StatelessWidget {
         initialRoute: '/',
         routes: {
           "/": (context) => const SplashScreen(),
-          // "/": (context) => AppBar(),
-          Routes.onboardingScreen1: (context) => Onboarding(),
-          Routes.loginScreen: (context) => Login(),
-          Routes.otpScreen: (context) => Otp(),
-          Routes.signUpSCreen: (context) => Signup(),
-          Routes.resetPassword: (context) => PasswordReset(),
-          Routes.homeScreen: (context) => const Home(),
-          Routes.addHabitsScreen: (context) => const Habits(),
-          Routes.settingsScreen: (context) => const Settings(),
-          // Routes.profileScreen: (context) => Profile(),
-          Routes.analyticsScreen: (context) => const Analytics(),
-          Routes.streaksScreen: (context) => const Streaks(),
-          Routes.appBar: (context) => const MyDashboard(),
+          // Routes.onboardingScreen1: (context) => const Onboarding1(),
+          // // Routes.onboardingScreen2: (context) => Onboarding1(),
+          // // Routes.onboardingScreen3: (context) => Onboarding1(),
+          // // Routes.loginScreen: (context) => Login(),
+          // // Routes.otpScreen: (context) => Otp(),
+          // // Routes.signUpSCreen: (context) => Signup(),
+          // Routes.homeScreen: (context) => const Home(),
+          // Routes.addHabitsScreen: (context) => const Habits(),
+          // Routes.settingsScreen: (context) => const Settings(),
+          // // Routes.profileScreen: (context) => Profile(),
+          // Routes.analyticsScreen: (context) => const Analytics(),
+          // Routes.streaksScreen: (context) => const Streaks(),
+          // Routes.appBar: (context) => const MyDashboard(),
+
         });
   }
 }
