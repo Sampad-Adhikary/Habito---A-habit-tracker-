@@ -51,20 +51,17 @@ class Habito extends StatelessWidget {
         initialRoute: '/',
         routes: {
           "/": (context) => const SplashScreen(),
-          // Routes.onboardingScreen1: (context) => const Onboarding1(),
-          // // Routes.onboardingScreen2: (context) => Onboarding1(),
-          // // Routes.onboardingScreen3: (context) => Onboarding1(),
-          // // Routes.loginScreen: (context) => Login(),
-          // // Routes.otpScreen: (context) => Otp(),
-          // // Routes.signUpSCreen: (context) => Signup(),
-          // Routes.homeScreen: (context) => const Home(),
-          // Routes.addHabitsScreen: (context) => const Habits(),
-          // Routes.settingsScreen: (context) => const Settings(),
-          // // Routes.profileScreen: (context) => Profile(),
-          // Routes.analyticsScreen: (context) => const Analytics(),
-          // Routes.streaksScreen: (context) => const Streaks(),
-          // Routes.appBar: (context) => const MyDashboard(),
-
+          Routes.onboardingScreen1: (context) => Onboarding(),
+          // Routes.loginScreen: (context) => Login(),
+          // Routes.otpScreen: (context) => Otp(),
+          // Routes.signUpSCreen: (context) => Signup(),
+          Routes.homeScreen: (context) => const Home(),
+          Routes.addHabitsScreen: (context) => HabitList(),
+          Routes.settingsScreen: (context) => const Settings(),
+          // Routes.profileScreen: (context) => Profile(),
+          Routes.analyticsScreen: (context) => const Analytics(),
+          Routes.streaksScreen: (context) => const Streaks(),
+          Routes.appBar: (context) => const MyDashboard(),
         });
   }
 }
