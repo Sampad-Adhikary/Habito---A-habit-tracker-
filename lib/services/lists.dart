@@ -97,20 +97,7 @@ class Habitsitems extends StatelessWidget {
                 SizedBox(
                   width: 15,
                 ),
-                Container(
-                  height: 33,
-                  width: 36,
-                  decoration: BoxDecoration(
-                      color: iconBG,
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Icon(
-                    iconData,
-                    color: iconColor,
-                  ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
+                
                 Container(
                   width:225.7,
                   padding: EdgeInsets.only(top: 15),
@@ -140,7 +127,22 @@ class Habitsitems extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
+                ),
+                SizedBox(
+                  width: 35,
+                ),
+                Container(
+                  height: 33,
+                  width: 36,
+                  decoration: BoxDecoration(
+                      color: iconBG,
+                      borderRadius: BorderRadius.circular(8)),
+                  child: Icon(
+                    iconData,
+                    color: iconColor,
+                  ),
+                ),
+                
               ]),
             ),
           ),

@@ -29,7 +29,7 @@ class _HabitListState extends State<HabitList> {
         ),
         actions: [
           CircleAvatar(
-            backgroundImage: AssetImage('assets/images/face.jpg'),
+            backgroundImage: AssetImage('assets/face.jpg'),
           ),
           SizedBox(
             width: 25,
