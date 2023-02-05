@@ -2,15 +2,17 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:habito/screens/about.dart';
 import 'package:habito/screens/dashboard.dart';
+import 'package:habito/screens/help.dart';
+import 'package:habito/screens/login-signup/changePwd.dart';
 import 'package:habito/screens/login-signup/resetPassword.dart';
+import 'package:habito/screens/onboarding/content_model.dart';
 
 //importing screens
 import 'constants/routes.dart';
 import 'screens/splashScreen.dart';
 import 'screens/onboarding/onboardingScreen1.dart';
-import 'screens/onboarding/onboardingScreen2.dart';
-import 'screens/onboarding/onboardingScreen3.dart';
 import 'screens/login-signup/loginScreen.dart';
 import 'screens/login-signup/signUpScreen.dart';
 import 'screens/login-signup/otpScreen.dart';
@@ -20,6 +22,9 @@ import 'screens/homeScreen.dart';
 import 'screens/profileScreen.dart';
 import 'screens/settingsScreen.dart';
 import 'screens/streaksScreen.dart';
+import 'package:habito/screens/theme.dart';
+import 'package:habito/screens/rating.dart';
+import 'package:habito/screens/shareApp.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -62,6 +67,12 @@ class Habito extends StatelessWidget {
           Routes.analyticsScreen: (context) => const Analytics(),
           Routes.streaksScreen: (context) => const Streaks(),
           Routes.appBar: (context) => const MyDashboard(),
+          Routes.changePwd: (context) => ChangePwd(),
+          Routes.theme: (context) => AppTheme(),
+          Routes.help: (contents) => Help(),
+          Routes.rating: (context) => Ratings(),
+          Routes.shareApp: (context) => Share(),
+          Routes.about: (context) => About(),
         });
   }
 }
