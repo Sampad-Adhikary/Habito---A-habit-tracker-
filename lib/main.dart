@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:habito/screens/dashboard.dart';
 
@@ -19,7 +20,9 @@ import 'screens/profileScreen.dart';
 import 'screens/settingsScreen.dart';
 import 'screens/streaksScreen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const Habito());
 }
 

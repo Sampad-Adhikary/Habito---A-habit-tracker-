@@ -114,7 +114,7 @@ class _OnbordingState extends State<Onbording> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => AddHabits(),
+                        builder: (_) => HabitList(),
                       ),
                     );
                   }

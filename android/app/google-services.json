@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "182424770657",
+    "project_id": "habit-tracker-c2a68",
+    "storage_bucket": "habit-tracker-c2a68.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182424770657:android:943e6f4740aa2009383220",
+        "android_client_info": {
+          "package_name": "com.example.habito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "182424770657-ggfh5sfv3edeghfb7lp62b1ja41t0357.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXygIkDV3JUTy4NLJ4kQRRZ_dsUhMuv3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "182424770657-ggfh5sfv3edeghfb7lp62b1ja41t0357.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
