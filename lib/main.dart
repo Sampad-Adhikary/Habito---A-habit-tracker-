@@ -1,8 +1,9 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_import, prefer_const_constructors
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:habito/screens/dashboard.dart';
+import 'package:habito/screens/login-signup/resetPassword.dart';
 
 //importing screens
 import 'constants/routes.dart';
@@ -49,7 +50,7 @@ class Habito extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          "/": (context) => Onbording(),
+          "/": (context) => const SplashScreen(),
           // Routes.onboardingScreen1: (context) => const Onboarding1(),
           // // Routes.onboardingScreen2: (context) => Onboarding1(),
           // // Routes.onboardingScreen3: (context) => Onboarding1(),
@@ -63,6 +64,7 @@ class Habito extends StatelessWidget {
           // Routes.analyticsScreen: (context) => const Analytics(),
           // Routes.streaksScreen: (context) => const Streaks(),
           // Routes.appBar: (context) => const MyDashboard(),
+
         });
   }
 }

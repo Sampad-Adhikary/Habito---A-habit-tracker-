@@ -5,6 +5,7 @@ class Routes {
   static const String loginScreen = "/log-in";
   static const String otpScreen = "/verify-otp";
   static const String signUpSCreen = "/sign-up";
+  static const String resetPassword = "/reset-password";
   static const String homeScreen = "/home";
   static const String addHabitsScreen = "/addHabits";
   static const String settingsScreen = "/settings";

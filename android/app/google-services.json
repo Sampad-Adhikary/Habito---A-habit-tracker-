@@ -8,6 +8,7 @@
     {
       "client_info": {
         "mobilesdk_app_id": "1:182424770657:android:943e6f4740aa2009383220",
+
         "android_client_info": {
           "package_name": "com.example.habito"
         }
@@ -15,6 +16,7 @@
       "oauth_client": [
         {
           "client_id": "182424770657-ggfh5sfv3edeghfb7lp62b1ja41t0357.apps.googleusercontent.com",
+
           "client_type": 3
         }
       ],
@@ -27,6 +29,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
+
               "client_id": "182424770657-ggfh5sfv3edeghfb7lp62b1ja41t0357.apps.googleusercontent.com",
               "client_type": 3
             }

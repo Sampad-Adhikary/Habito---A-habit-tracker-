@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:habito/screens/addHabitsScreen.dart';
-import 'package:habito/services/content_model.dart';
+import 'package:habito/constants/routes.dart';
+import 'package:habito/screens/onboarding/content_model.dart';
 
-
-
-
-class Onbording extends StatefulWidget {
+// import 'package:habito_app/pages/habits.dart';
+class Onboarding extends StatefulWidget {
   @override
-  _OnbordingState createState() => _OnbordingState();
+  _OnboardingState createState() => _OnboardingState();
 }
 
-class _OnbordingState extends State<Onbording> {
+class _OnboardingState extends State<Onboarding> {
   int currentIndex = 0;
-  PageController _controller=PageController();
-
+  PageController _controller = PageController();
   @override
   void initState() {
     _controller = PageController(initialPage: 0);
@@ -32,7 +29,6 @@ class _OnbordingState extends State<Onbording> {
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Column(
-          
           children: [
             (currentIndex<2)?
             Container(
@@ -47,7 +43,6 @@ class _OnbordingState extends State<Onbording> {
             ):Container(),
             Expanded(
               child: PageView.builder(
-                
                 controller: _controller,
                 itemCount: contents.length,
                 onPageChanged: (int index) {
@@ -59,7 +54,6 @@ class _OnbordingState extends State<Onbording> {
                   return Padding(
                     padding: const EdgeInsets.all(40),
                     child: Column(
-                      
                       children: [
                         Image.asset(
                           contents[i].image,
