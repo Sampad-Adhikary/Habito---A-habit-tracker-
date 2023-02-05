@@ -93,7 +93,10 @@ class InitState extends State<Login> {
               ),
             ),
             GestureDetector(
-              onTap: () => {Navigator.pushNamed(context, Routes.appBar)},
+              onTap: () => {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, Routes.appBar, (route) => false)
+              },
               child: Container(
                 margin: EdgeInsets.only(left: 20, right: 20, top: 20),
                 alignment: Alignment.center,
