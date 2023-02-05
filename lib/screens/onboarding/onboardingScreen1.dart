@@ -66,7 +66,6 @@ class _OnboardingState extends State<Onboarding> {
                         ),
                         Text(
                           contents[i].title,
-                          // ignore: prefer_const_constructors
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 35,
@@ -105,11 +104,12 @@ class _OnboardingState extends State<Onboarding> {
               child: TextButton(
                 child: Text(
                   currentIndex == contents.length - 1 ? "Get Started" : "Next",
-                  style: const TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
                   if (currentIndex == contents.length - 1) {
-                    Navigator.pushReplacementNamed(context, Routes.loginScreen);
+                    Navigator.pushReplacementNamed(
+                        context, Routes.addHabitsScreen);
                   }
                   _controller.nextPage(
                     duration: Duration(milliseconds: 100),
