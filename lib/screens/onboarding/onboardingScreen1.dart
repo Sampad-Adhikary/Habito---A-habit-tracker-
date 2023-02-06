@@ -30,17 +30,22 @@ class _OnboardingState extends State<Onboarding> {
       body: SafeArea(
         child: Column(
           children: [
-            (currentIndex<2)?
-            Container(
-              child: Align(
-                alignment: Alignment.topRight,
-                child: TextButton(child: Text('Skip',style: TextStyle(
-                  color: Colors.white,),
-                  ),
-                  onPressed: ()=>_controller.jumpToPage(2),),
-              ),
-              
-            ):Container(),
+            (currentIndex < 2)
+                ? Container(
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: TextButton(
+                        child: Text(
+                          'Skip',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        onPressed: () => _controller.jumpToPage(2),
+                      ),
+                    ),
+                  )
+                : Container(),
             Expanded(
               child: PageView.builder(
                 controller: _controller,
@@ -96,21 +101,15 @@ class _OnboardingState extends State<Onboarding> {
               height: 60,
               margin: EdgeInsets.all(40),
               width: double.infinity,
-              child:TextButton(
-                
+              child: TextButton(
                 child: Text(
-                    currentIndex == contents.length - 1 ? "Get Started" : "Next",
-                    style: TextStyle(
-                      color: Colors.white
-                    ),),
+                  currentIndex == contents.length - 1 ? "Get Started" : "Next",
+                  style: TextStyle(color: Colors.white),
+                ),
                 onPressed: () {
                   if (currentIndex == contents.length - 1) {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => HabitList(),
-                      ),
-                    );
+                    Navigator.pushReplacementNamed(
+                        context, Routes.addHabitsScreen);
                   }
                   _controller.nextPage(
                     duration: Duration(milliseconds: 100),
@@ -118,11 +117,10 @@ class _OnboardingState extends State<Onboarding> {
                   );
                 },
                 style: TextButton.styleFrom(
-                  backgroundColor: Colors.purpleAccent,
-      
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),)
-                ),
+                    backgroundColor: Colors.purpleAccent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    )),
               ),
             )
           ],
@@ -137,9 +135,7 @@ class _OnboardingState extends State<Onboarding> {
       width: currentIndex == index ? 25 : 10,
       margin: EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: Colors.purpleAccent
-      ),
+          borderRadius: BorderRadius.circular(20), color: Colors.purpleAccent),
     );
   }
 }
