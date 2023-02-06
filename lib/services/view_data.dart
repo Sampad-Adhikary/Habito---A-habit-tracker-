@@ -50,7 +50,7 @@ class _ViewDataState extends State<ViewData> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.pop(context);},
                     icon: Icon(
                       CupertinoIcons.arrow_left,
                       color: Colors.white,

@@ -4,7 +4,6 @@ import 'package:habito/services/habits.dart';
 import 'package:habito/services/lists.dart';
 import 'package:habito/services/view_data.dart';
 
-
 class HabitList extends StatefulWidget {
   const HabitList({super.key});
 
@@ -15,7 +14,7 @@ class HabitList extends StatefulWidget {
 class _HabitListState extends State<HabitList> {
   final CollectionReference _habitsList =
       FirebaseFirestore.instance.collection('habits');
-      List<Select> selected=[];
+  List<Select> selected = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +51,6 @@ class _HabitListState extends State<HabitList> {
           preferredSize: Size.fromHeight(35),
         ),
       ),
-
       body: Column(
         children: [
           SizedBox(
@@ -102,7 +100,7 @@ class _HabitListState extends State<HabitList> {
                       itemCount: streamSnapshot.data!.docs.length,
                       itemBuilder: (context, index) {
                         IconData iconData;
-                        Color iconColor=Colors.black ;
+                        Color iconColor = Colors.white;
                         // final DocumentSnapshot documentSnapshot =
                         //     streamSnapshot.data!.docs[index];
                         Map<String, dynamic> documentSnapshot =
@@ -112,52 +110,48 @@ class _HabitListState extends State<HabitList> {
                         switch (documentSnapshot['Category']) {
                           case "Food":
                             iconData = Icons.restaurant_menu;
-                            iconColor:
-                            Colors.red;
+
                             break;
                           case "Work":
                             iconData = Icons.business_center;
-                            iconColor:Colors.red;
+                          
                             break;
                           case "Drink":
                             iconData = Icons.local_drink;
-                            iconColor:
-                            Colors.red;
+
                             break;
                           case "Workout":
                             iconData = Icons.sports_gymnastics;
-                            iconColor:
-                            Colors.red;
+
                             break;
                           case "Coding":
                             iconData = Icons.laptop_windows;
-                            iconColor:
-                            Colors.red;
+
                             break;
                           case "Run":
                             iconData = Icons.directions_run;
-                            iconColor:
-                            Colors.red;
+
                             break;
-                            case "Write":
+                          case "Write":
                             iconData = Icons.draw;
-                            iconColor:
-                            Colors.red;
+
                             break;
                           default:
                             iconData = Icons.abc;
-                            iconColor:
-                            Colors.red;
                         }
-                        selected.add(Select(id:streamSnapshot.data!.docs[index].id , checkValue:false ));
+                        selected.add(Select(
+                            id: streamSnapshot.data!.docs[index].id,
+                            checkValue: false));
                         return InkWell(
-                          onTap: (){
-                            Navigator.push(context,MaterialPageRoute(builder:(builder)=>ViewData(
-                              document: documentSnapshot,
-                              id:streamSnapshot.data!.docs[index].id
-                            )));
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (builder) => ViewData(
+                                        document: documentSnapshot,
+                                        id: streamSnapshot
+                                            .data!.docs[index].id)));
                           },
-
                           child: Habitsitems(
                             title: documentSnapshot['HabitName'],
                             description: documentSnapshot['Description'],
@@ -176,18 +170,16 @@ class _HabitListState extends State<HabitList> {
       ),
     );
   }
-  void onChange(int index)
-  {
+
+  void onChange(int index) {
     setState(() {
-      selected[index].checkValue=!selected[index].checkValue;
+      selected[index].checkValue = !selected[index].checkValue;
     });
   }
 }
 
-
-class Select
-{
-  String id ;
-  bool checkValue=false;
+class Select {
+  String id;
+  bool checkValue = false;
   Select({required this.id, required this.checkValue});
 }

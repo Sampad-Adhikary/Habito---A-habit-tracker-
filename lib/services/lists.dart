@@ -1,46 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// List habitList = [
-//   [
-//     false, //If it is complete or not
-//     "Drink Water", //The title of the habit
-//     "Drink At Least 8 Cups Of Water", //The subtitle of the habit,
-//     Icon(Icons.local_drink) //The icon of the habit
-//   ],
-//   [
-//     false, //If it is complete or not
-//     "Read", //The title of the habit
-//     "Read at least 25 pages", //The subtitle of the habit,
-//     Icon(Icons.book) //The icon of the habit
-//   ],
-//   [
-//     false, //If it is complete or not
-//     "Exercise", //The title of the habit
-//     "Go to the gym or do cardio", //The subtitle of the habit,
-//     Icon(Icons.sports_gymnastics), //The icon of the habit
-//   ],
-//   [
-//     false, //If it is complete or not
-//     "Learn Spanish", //The title of the habit
-//     "Study Spanish for 20 min", //The subtitle of the habit,
-//     Icon(Icons.language), //The icon of the habit
-//   ],
-//   [
-//     false, //If it is complete or not
-//     "Code", //The title of the habit
-//     "Work on coding project", //The subtitle of the habit,
-//     Icon(Icons.computer), //The icon of the habit
-//   ],
-//   [
-//     false, //If it is complete or not
-//     "Journal", //The title of the habit
-//     "Write Down 3 things that you appreciate", //The subtitle of the habit,
-//     Icon(Icons.edit), //The icon of the habit
-//   ],
-// ];
-
-// import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class Habitsitems extends StatelessWidget {
@@ -50,8 +7,10 @@ class Habitsitems extends StatelessWidget {
       required this.iconData,
       required this.iconColor,
       required this.description,
-      required this.check, 
-      required this.iconBG, required this.onChange, required this.index});
+      required this.check,
+      required this.iconBG,
+      required this.onChange,
+      required this.index});
 
   //we need to assign all value dynamically
 
@@ -68,8 +27,41 @@ class Habitsitems extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      child: Row(children: [
-        Theme(
+      margin: EdgeInsets.only(top: 5),
+       decoration: BoxDecoration(
+                  border: Border.all(color: Colors.greenAccent),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+      child: Theme(
+        child: ListTile(
+            title: Text(
+              title,
+              style: TextStyle(
+                  fontSize: 18,
+                  letterSpacing: 1,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            subtitle: Text(
+              description,
+              style: TextStyle(
+                  fontSize: 12,
+                  letterSpacing: 0.8,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white),
+            ),
+            leading: Container(
+               decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: Colors.white)),
+              child: Icon(
+                          iconData,
+                          color: iconColor,
+                          size: 40,
+                          
+                        ),
+            ) ,
+            trailing:  Theme(
           child: Transform.scale(
             scale: 1.5,
             child: Checkbox(
@@ -82,72 +74,17 @@ class Habitsitems extends StatelessWidget {
             ),
           ),
           data: ThemeData(
-            primarySwatch: Colors.blue,
-            unselectedWidgetColor: Color(0xff5e616a),
+            // primarySwatch: Colors.blue,
+            unselectedWidgetColor: Colors.white,
           ),
         ),
-        Expanded(
-          child: Container(
-            height: 75,
-            child: Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12)),
-              color: Color(0xff2a2e3d),
-              child: Row(children: [
-                SizedBox(
-                  width: 15,
-                ),
-                
-                Container(
-                  width:225.7,
-                  padding: EdgeInsets.only(top: 15),
-                  child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        
-                        title,
-                        style: TextStyle(
-                            fontSize: 18,
-                            letterSpacing: 1,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white),
-                            
-                      ),
-                      Expanded(
-                        child: Text(
-                          description,
-                          style: TextStyle(
-                              fontSize: 10,
-                              letterSpacing: 0.8,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: 35,
-                ),
-                Container(
-                  height: 33,
-                  width: 36,
-                  decoration: BoxDecoration(
-                      color: iconBG,
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Icon(
-                    iconData,
-                    color: iconColor,
-                  ),
-                ),
-                
-              ]),
-            ),
-          ),
-        )
-      ]),
-    );
+             ),
+              data: ThemeData(
+            // primarySwatch: Colors.blue,
+            unselectedWidgetColor: Colors.white,
+    //       ),
+      ),
+    ));
+
   }
 }
