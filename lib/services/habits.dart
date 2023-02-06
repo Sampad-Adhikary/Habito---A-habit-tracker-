@@ -33,7 +33,7 @@ class _AddHabitsState extends State<AddHabits> {
               height: 30,
             ),
             IconButton(
-                onPressed: () {},
+                onPressed: () {Navigator.pop(context);},
                 icon: Icon(
                   CupertinoIcons.arrow_left,
                   color: Colors.white,
