@@ -33,14 +33,8 @@ class InitState extends State<Signup> {
           margin: EdgeInsets.only(left: 20, right: 20),
           padding: EdgeInsets.only(left: 20, right: 20),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.grey[300],
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(1, 2),
-                blurRadius: 5,
-              )
-            ],
+            color: Colors.black26,
+            borderRadius: BorderRadius.circular(10),
           ),
           alignment: Alignment.center,
           child: TextField(
@@ -60,14 +54,8 @@ class InitState extends State<Signup> {
           margin: EdgeInsets.only(left: 20, right: 20, top: 20),
           padding: EdgeInsets.only(left: 20, right: 20),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.grey[300],
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(1, 2),
-                blurRadius: 5,
-              )
-            ],
+            color: Colors.black26,
+            borderRadius: BorderRadius.circular(10),
           ),
           alignment: Alignment.center,
           child: TextField(
@@ -87,14 +75,8 @@ class InitState extends State<Signup> {
           margin: EdgeInsets.only(left: 20, right: 20, top: 20),
           padding: EdgeInsets.only(left: 20, right: 20),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.grey[300],
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(1, 2),
-                blurRadius: 5,
-              )
-            ],
+            color: Colors.black26,
+            borderRadius: BorderRadius.circular(10),
           ),
           alignment: Alignment.center,
           child: TextField(
@@ -114,14 +96,8 @@ class InitState extends State<Signup> {
           margin: EdgeInsets.only(left: 20, right: 20, top: 20),
           padding: EdgeInsets.only(left: 20, right: 20),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.grey[300],
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(1, 2),
-                blurRadius: 5,
-              )
-            ],
+            color: Colors.black26,
+            borderRadius: BorderRadius.circular(10),
           ),
           alignment: Alignment.center,
           child: TextField(
@@ -142,14 +118,8 @@ class InitState extends State<Signup> {
           margin: EdgeInsets.only(left: 20, right: 20, top: 20),
           padding: EdgeInsets.only(left: 20, right: 20),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.grey[300],
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(1, 2),
-                blurRadius: 5,
-              )
-            ],
+            color: Colors.black26,
+            borderRadius: BorderRadius.circular(10),
           ),
           alignment: Alignment.center,
           child: TextField(
@@ -177,7 +147,7 @@ class InitState extends State<Signup> {
                 (Color.fromARGB(255, 160, 26, 198)),
                 (Color.fromARGB(255, 52, 106, 232))
               ], begin: Alignment.centerLeft, end: Alignment.centerRight),
-              borderRadius: BorderRadius.circular(50),
+              borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
                   offset: Offset(1, 2),

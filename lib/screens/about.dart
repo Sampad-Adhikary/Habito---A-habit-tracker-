@@ -15,7 +15,7 @@ class _AboutState extends State<About> {
         child: Scaffold(
       body: Center(
           child: Text(
-        "Version 1.0.0",
+        "Version 1.0.1",
         style: TextStyle(fontSize: 20),
       )),
     ));

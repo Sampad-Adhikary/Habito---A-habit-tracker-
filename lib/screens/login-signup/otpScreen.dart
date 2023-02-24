@@ -141,7 +141,8 @@ class InitState extends State<Otp> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, Routes.addHabitsScreen);
+              Navigator.pushNamedAndRemoveUntil(
+                  context, Routes.appBar, (route) => false);
             },
             child: Container(
               margin: EdgeInsets.only(left: 20, right: 20, top: 5),
