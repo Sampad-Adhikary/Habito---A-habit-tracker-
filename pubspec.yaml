@@ -41,6 +41,7 @@ dependencies:
   cloud_firestore: ^4.3.1
   percent_indicator: ^4.2.2
   firebase_core: ^2.4.1
+  table_calendar: ^3.0.9
 
 dev_dependencies:
   flutter_test:
