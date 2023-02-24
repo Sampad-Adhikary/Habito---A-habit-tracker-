@@ -2,9 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:habito/constants/routes.dart';
+import 'package:habito/services/lists.dart';
 import 'package:habito/utils/date_utils.dart' as date_util;
 import 'package:habito/utils/colors_util.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:habito/utils/habit_tiles.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -14,6 +18,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  CollectionReference _referenceHabitList =
+      FirebaseFirestore.instance.collection("habits");
+  late Stream<QuerySnapshot> _streamHabitsList;
+
   DateTime currentDateTime = DateTime.now();
   List<DateTime> currentMonthList = List.empty();
   bool? isChecked = false;
@@ -22,6 +30,8 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
+    _streamHabitsList = _referenceHabitList.snapshots();
+
     scrollController = ScrollController();
     currentMonthList = date_util.DateUtils.daysInMonth(currentDateTime);
     currentMonthList.sort((a, b) => a.day.compareTo(b.day));
@@ -137,124 +147,6 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget progressBar() {
-    return Container(
-      height: 200,
-      // width: 350,
-
-      margin: EdgeInsets.fromLTRB(5, 20, 5, 7),
-      padding: EdgeInsets.fromLTRB(15, 7, 15, 7),
-      decoration: BoxDecoration(
-          color: Color.fromRGBO(0, 0, 0, 100),
-          borderRadius: BorderRadius.circular(10)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            margin: EdgeInsets.only(right: 30),
-            child: CircularPercentIndicator(
-              radius: 80,
-              // animateFromLastPercent: ,
-              lineWidth: 25.0,
-              percent: 0.4,
-              progressColor: Color.fromRGBO(141, 74, 248, 50),
-              backgroundColor: Color.fromRGBO(141, 74, 248, 95),
-              circularStrokeCap: CircularStrokeCap.round,
-              center: const Text(
-                "40 %",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            // ignore: prefer_const_literals_to_create_immutables
-            children: [
-              Text(
-                "1 out of 3 Habits",
-                style: TextStyle(fontSize: 20),
-              ),
-              Text("Completed today", style: TextStyle(fontSize: 20)),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget Tasks() {
-    return Container(
-      height: 150,
-      margin: EdgeInsets.fromLTRB(5, 0, 5, 20),
-      decoration: BoxDecoration(
-          color: Colors.black26, borderRadius: BorderRadius.circular(10)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Container(
-            margin: EdgeInsets.only(left: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Task 1",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    )),
-                Container(
-                  margin: EdgeInsets.only(right: 30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Checkbox(
-                        value: isChecked,
-                        activeColor: Color.fromRGBO(141, 74, 248, 50),
-                        tristate: true,
-                        onChanged: (newBool) {
-                          setState(() {
-                            isChecked = newBool;
-                          });
-                        },
-                      ),
-                      Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      ),
-                      Icon(
-                        Icons.edit,
-                        color: Colors.grey[100],
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-          Divider(
-            thickness: 2,
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text("Current Streak: 00")),
-                Container(
-                    margin: EdgeInsets.only(right: 30),
-                    alignment: Alignment.centerRight,
-                    child: Text("Best Streak: 00")),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
   //Build WIDGET
   @override
   Widget build(BuildContext context) {
@@ -278,82 +170,106 @@ class _HomeState extends State<Home> {
     print(hour.runtimeType);
     String greet = greeting(hour);
 
+    _referenceHabitList.snapshots();
+
     return SafeArea(
         child: Scaffold(
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Container(
-          margin: EdgeInsets.only(top: 5, bottom: 5, right: 7, left: 7),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                padding: EdgeInsets.fromLTRB(10, 15, 10, 5),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      // ignore: prefer_const_literals_to_create_immutables
-                      colors: [
-                        Color.fromRGBO(141, 74, 248, 70),
-                        Color.fromRGBO(141, 74, 248, 50),
-                        Color.fromRGBO(141, 74, 248, 30)
-                      ],
-                      begin: const FractionalOffset(0.0, 0.0),
-                      end: const FractionalOffset(0.0, 1.0),
-                      stops: const [0.0, 0.5, 1.0],
-                      tileMode: TileMode.clamp),
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        Text("Hello, Sampad", style: TextStyle(fontSize: 21)),
-                        Icon(
-                          Icons.notifications,
-                          size: 30,
-                        )
-                      ],
-                    ),
-                    Container(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          '$greet',
-                          style: TextStyle(
-                              fontFamily: 'Nunito',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 28),
-                        )),
-                  ],
-                ),
+      body: Container(
+        margin: EdgeInsets.only(top: 5, bottom: 5, right: 7, left: 7),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.fromLTRB(10, 15, 10, 5),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    colors: [
+                      Color.fromRGBO(141, 74, 248, 70),
+                      Color.fromRGBO(141, 74, 248, 50),
+                      Color.fromRGBO(141, 74, 248, 30)
+                    ],
+                    begin: const FractionalOffset(0.0, 0.0),
+                    end: const FractionalOffset(0.0, 1.0),
+                    stops: const [0.0, 0.5, 1.0],
+                    tileMode: TileMode.clamp),
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    spreadRadius: 2,
+                    blurRadius: 4,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
               ),
-              calendarList(),
-              progressBar(),
-              Container(
-                margin: EdgeInsets.fromLTRB(5, 7, 5, 7),
-                padding: EdgeInsets.fromLTRB(5, 7, 5, 7),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Today's Checklist!",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      Text("Hello, Sampad", style: TextStyle(fontSize: 21)),
+                      Icon(
+                        Icons.notifications,
+                        size: 30,
+                      )
+                    ],
+                  ),
+                  Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        '$greet',
+                        style: TextStyle(
+                            // fontFamily: 'Nunito',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 28),
+                      )),
+                ],
               ),
-              Tasks(),
-              Tasks(),
-              Tasks(),
-              Tasks(),
-            ],
-          ),
+            ),
+            calendarList(),
+            Container(
+              margin: EdgeInsets.fromLTRB(5, 7, 5, 7),
+              padding: EdgeInsets.fromLTRB(5, 7, 5, 7),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Today's Checklist!",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+            StreamBuilder<QuerySnapshot>(
+                stream: _streamHabitsList,
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  if (snapshot.hasError) {
+                    return Text(snapshot.error.toString());
+                  } else if (snapshot.connectionState ==
+                      ConnectionState.active) {
+                    QuerySnapshot querySnapshot = snapshot.data;
+                    List<QueryDocumentSnapshot> listQueryDocumentSnapshot =
+                        querySnapshot.docs;
+
+                    return Expanded(
+                      child: ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          itemCount: listQueryDocumentSnapshot.length,
+                          itemBuilder: (context, index) {
+                            QueryDocumentSnapshot document =
+                                listQueryDocumentSnapshot[index];
+                            return Column(
+                              children: [
+                                HabitTiles(habitName: document['HabitName']),
+                              ],
+                            );
+                          }),
+                    );
+                  }
+
+                  return Center(child: CircularProgressIndicator());
+                })
+          ],
         ),
       ),
     ));
