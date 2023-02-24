@@ -108,8 +108,7 @@ class _OnboardingState extends State<Onboarding> {
                 ),
                 onPressed: () {
                   if (currentIndex == contents.length - 1) {
-                    Navigator.pushReplacementNamed(
-                        context, Routes.addHabitsScreen);
+                    Navigator.pushReplacementNamed(context, Routes.loginScreen);
                   }
                   _controller.nextPage(
                     duration: Duration(milliseconds: 100),

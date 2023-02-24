@@ -23,7 +23,7 @@ class Settings extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
-            title: Text('Settings'),
+            title: Text('Settings', style: TextStyle(fontSize: 30)),
           ),
           body: Container(
             child: ListView(

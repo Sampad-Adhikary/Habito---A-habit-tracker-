@@ -6,9 +6,14 @@ class Streaks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        child: Text("Streaks"),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Streaks',
+            style: TextStyle(fontSize: 30),
+          ),
+        ),
       ),
     );
   }
