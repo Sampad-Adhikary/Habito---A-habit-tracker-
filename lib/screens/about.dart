@@ -11,9 +11,13 @@ class About extends StatefulWidget {
 class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
         child: Scaffold(
-      body: Text("Version 1.0.0"),
+      body: Center(
+          child: Text(
+        "Version 1.0.0",
+        style: TextStyle(fontSize: 20),
+      )),
     ));
   }
 }

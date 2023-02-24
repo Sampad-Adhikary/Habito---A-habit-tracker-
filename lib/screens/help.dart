@@ -13,11 +13,10 @@ class _HelpState extends State<Help> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text('Help'),
-        ),
         body: Container(
-          child: Text("For any help reach out to us at: habito1209@gmail.com"),
+          child: Center(
+              child: Text(
+                  "For any help reach out to us at: habito1209@gmail.com")),
         ),
       ),
     );

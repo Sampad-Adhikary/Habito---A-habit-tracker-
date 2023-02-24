@@ -13,11 +13,12 @@ class _RatingsState extends State<Ratings> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("Ratings"),
-        ),
         body: Container(
-          child: Text("Plase Rate Us"),
+          child: Center(
+              child: Text(
+            "Plase Rate Us",
+            style: TextStyle(fontSize: 20),
+          )),
         ),
       ),
     );

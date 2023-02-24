@@ -20,6 +20,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   CollectionReference _referenceHabitList =
       FirebaseFirestore.instance.collection("habits");
+
   late Stream<QuerySnapshot> _streamHabitsList;
 
   DateTime currentDateTime = DateTime.now();

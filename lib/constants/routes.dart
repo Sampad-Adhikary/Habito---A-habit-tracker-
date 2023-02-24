@@ -8,6 +8,7 @@ class Routes {
   static const String resetPassword = "/reset-password";
   static const String homeScreen = "/home";
   static const String addHabitsScreen = "/addHabits";
+  static const String habits = "/habits";
   static const String settingsScreen = "/settings";
   static const String profileScreen = "/edit-profile";
   static const String analyticsScreen = "/analytics";

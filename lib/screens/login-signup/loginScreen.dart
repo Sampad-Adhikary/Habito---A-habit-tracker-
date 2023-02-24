@@ -32,15 +32,8 @@ class InitState extends State<Login> {
               margin: EdgeInsets.only(left: 20, right: 20),
               padding: EdgeInsets.only(left: 20, right: 20),
               decoration: BoxDecoration(
-                // borderRadius: BorderRadius.circular(15),
-                // color: Colors.grey[300],
-                // boxShadow: [
-                //   BoxShadow(
-                //     offset: Offset(1, 2),
-                //     blurRadius: 5,
-                //   )
-                // ],
-                color: Colors.black26, borderRadius: BorderRadius.circular(10),
+                color: Colors.black26,
+                borderRadius: BorderRadius.circular(10),
               ),
               alignment: Alignment.center,
               child: TextField(

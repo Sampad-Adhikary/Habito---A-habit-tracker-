@@ -7,12 +7,10 @@ class Settings extends StatelessWidget {
   Settings({super.key});
 
   var arrData = [
-    'Profile',
     'Change Password',
     'Theme',
     'Help',
     'Rate us',
-    'Share App',
     'About App',
     'Logout',
   ];
@@ -43,8 +41,6 @@ class Settings extends StatelessWidget {
                       Navigator.pushNamed(context, Routes.help);
                     } else if (value == 'Rate us') {
                       Navigator.pushNamed(context, Routes.rating);
-                    } else if (value == 'Share App') {
-                      Navigator.pushNamed(context, Routes.shareApp);
                     } else if (value == 'About App') {
                       Navigator.pushNamed(context, Routes.about);
                     } else if (value == 'Profile') {
@@ -52,13 +48,18 @@ class Settings extends StatelessWidget {
                     }
                   },
                   child: Container(
-                    height: 50,
-                    margin: EdgeInsets.fromLTRB(10, 2.5, 10, 2.5),
+                    height: 70,
+                    margin: EdgeInsets.fromLTRB(10, 2.5, 10, 0),
                     padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.black26),
-                    child: Text(value),
+                    child: Text(
+                      value,
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
                   ),
                 ),
               );

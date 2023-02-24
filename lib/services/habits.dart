@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,11 +10,11 @@ class AddHabits extends StatefulWidget {
 }
 
 class _AddHabitsState extends State<AddHabits> {
-  TextEditingController _HabitName=TextEditingController();
-  TextEditingController _HabitDescription=TextEditingController();
+  TextEditingController _HabitName = TextEditingController();
+  TextEditingController _HabitDescription = TextEditingController();
 
-  String type='';
-  String Category='';
+  String type = '';
+  String Category = '';
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +22,7 @@ class _AddHabitsState extends State<AddHabits> {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            gradient:
-                LinearGradient(colors: [Color(0xFF1d1e26), Color(0xFF252041)])),
+        // decoration: BoxDecoration(),
         child: SingleChildScrollView(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -35,7 +32,7 @@ class _AddHabitsState extends State<AddHabits> {
             IconButton(
                 onPressed: () {},
                 icon: Icon(
-                  CupertinoIcons.arrow_left,
+                  Icons.arrow_left,
                   color: Colors.white,
                   size: 28,
                 )),
@@ -121,16 +118,15 @@ class _AddHabitsState extends State<AddHabits> {
                         width: 20,
                       ),
                       categorySelect('Run', 0xff2bc8d9),
-                         SizedBox(
+                      SizedBox(
                         width: 20,
                       ),
                       categorySelect('Drink', 0xff2bc8d1),
-                          SizedBox(
+                      SizedBox(
                         width: 20,
                       ),
                       categorySelect('Write', 0xff2bc8d1),
                     ],
-                    
                   ),
                   SizedBox(
                     height: 50,
@@ -150,66 +146,72 @@ class _AddHabitsState extends State<AddHabits> {
 
   Widget button() {
     return InkWell(
-      onTap: (){
-        FirebaseFirestore.instance.collection("habits").add(
-          {
-            'HabitName':_HabitName.text,
-            'Description':_HabitDescription.text,
-            'Type':type,
-            'Category':Category
-          }
-        );
+      onTap: () {
+        FirebaseFirestore.instance.collection("habits").add({
+          'HabitName': _HabitName.text,
+          'Description': _HabitDescription.text,
+          'Type': type,
+          'Category': Category
+        });
         Navigator.pop(context);
-
       },
       child: Container(
-          height: 56,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: LinearGradient(
-              colors: [Color(0xff8a32f1), Color(0xffad32f9)],
-            ),
+        height: 56,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          gradient: LinearGradient(
+            colors: [Color(0xff8a32f1), Color(0xffad32f9)],
           ),
-          child: Center(child: Text('Add Habits',style: TextStyle(
-              color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),)),),
+        ),
+        child: Center(
+            child: Text(
+          'Add Habits',
+          style: TextStyle(
+              color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
+        )),
+      ),
     );
   }
 
   Widget typeSelect(String label, int color) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         setState(() {
-          type=label;
+          type = label;
         });
       },
       child: Chip(
-        backgroundColor: type==label?Colors.white:Color(color),
+        backgroundColor: type == label ? Colors.white : Color(color),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         label: Text(
           label,
           style: TextStyle(
-              color:type==label?Colors.black: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
+              color: type == label ? Colors.black : Colors.white,
+              fontSize: 15,
+              fontWeight: FontWeight.w600),
         ),
         labelPadding: EdgeInsets.symmetric(horizontal: 17, vertical: 3.8),
       ),
     );
   }
 
-   Widget categorySelect(String label, int color) {
+  Widget categorySelect(String label, int color) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         setState(() {
-          Category=label;
+          Category = label;
         });
       },
       child: Chip(
-         backgroundColor: Category==label?Colors.white:Color(color),
+        backgroundColor: Category == label ? Colors.white : Color(color),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         label: Text(
           label,
           style: TextStyle(
-              color:Category==label?Colors.black: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
+              color: Category == label ? Colors.black : Colors.white,
+              fontSize: 15,
+              fontWeight: FontWeight.w600),
         ),
         labelPadding: EdgeInsets.symmetric(horizontal: 17, vertical: 3.8),
       ),
